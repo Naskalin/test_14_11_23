@@ -1,5 +1,6 @@
-### install app
-``php composer install``
+### install
+1. ``git clone git@github.com:Naskalin/test_14_11_23.git``
+2. ``php composer install``
 
 ### run tests
 ``php vendor/bin/pest``
