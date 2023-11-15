@@ -67,7 +67,6 @@ it('list user posts', function () {
 it('create user post', function () {
     $resp = api()->users()->createPost(5, [
         'title' => 'Naskalin post',
-        'userId' => 5,
         'body' => 'Lorem ipsum'
     ]);
     expect($resp)->toBeArray();

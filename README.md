@@ -46,7 +46,6 @@ $api->users()->listPosts($userId, $pageNumber);
 // create post
 $api->users()->createPost($userId, [
     'title' => 'Naskalin post',
-    'userId' => 5,
     'body' => 'Lorem ipsum'
 ]);
 
