@@ -5,7 +5,21 @@
 ### run tests
 ``php vendor/bin/pest``
 
-### usage
+### usage factory
+```php
+// create instance of api
+$api = new ApiJsonPlaceholder();
+
+$resp = api()->users()->list();
+
+// App\Models\User[]
+$users = UserFactory::collection($resp);
+
+// App\Models\User
+$user = UserFactory::new($resp[0]);
+```
+
+### usage api
 ```php
 // create instance of api
 $api = new ApiJsonPlaceholder();

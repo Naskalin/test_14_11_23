@@ -1,6 +1,8 @@
 <?php
 
 use App\ApiJsonPlaceholder;
+use App\Factories\UserFactory;
+use App\Models\User;
 
 function api(): ApiJsonPlaceholder
 {
@@ -18,7 +20,7 @@ it('create user', function () {
         "suite": "Apt. 556",
         "city": "Gwenborough",
         "zipcode": "92998-3874",
-        "geo": { "lat": "-37.3159", "lng": "81.1496" } 
+        "geo": { "lat": "-37.3159", "lng": "81.1496" }
     },
     "phone": "1-770-736-8031 x56442",
     "website": "hildegard.org",
@@ -75,4 +77,18 @@ it('create user post', function () {
 
 it('list user todos', function () {
     expect(api()->users()->listTodos(5))->toBeArray();
+});
+
+it('user factory', function () {
+   $resp = api()->users()->get(1);
+   $user = UserFactory::new($resp);
+   expect($user)->toBeInstanceOf(User::class);
+});
+
+it('user factory list', function () {
+    $resp = api()->users()->list();
+    $users = UserFactory::collection($resp);
+    expect($users)->toBeArray();
+    expect($users)->not()->toBeEmpty();
+    expect($users[1])->toBeInstanceOf(User::class);
 });
