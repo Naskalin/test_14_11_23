@@ -12,11 +12,11 @@ $api = new ApiJsonPlaceholder();
 
 $resp = api()->users()->list();
 
-// App\Models\User[]
-$users = UserFactory::collection($resp);
-
 // App\Models\User
 $user = UserFactory::new($resp[0]);
+
+// array of App\Models\User
+$users = UserFactory::collection($resp);
 ```
 
 ### usage api
